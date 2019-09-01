@@ -59,7 +59,7 @@ end
 
 def add_pet_to_stock(pet_shop, new_pet)
   pet_shop[:pets].push(new_pet)
-  stock_count(pet_shop)
+  # stock_count(pet_shop)
 end
 
 def customer_cash(customer)
@@ -77,4 +77,14 @@ end
 def add_pet_to_customer(customer, new_pet)
   customer[:pets].push(new_pet)
   # customer_pet_count(customer)
+end
+
+def customer_can_afford_pet(customer, new_pet)
+    if customer[:cash] > new_pet[:price]
+      return true
+    elsif customer[:cash] < new_pet[:price]
+      return false
+    elsif customer[:cash] == new_pet[:price]
+      return true
+    end
 end
